@@ -1,60 +1,68 @@
+--- START OF FILE script.js ---
 document.addEventListener('DOMContentLoaded', () => {
 
     // ----------------------------------------------------
-    // بەشی ١: زانیاری وێنەکان
+    // بەشی ١: زانیاری وێنەکان (ناوی بنەڕەتی گۆڕدرا بۆ "img")
     // ----------------------------------------------------
 
-    // پێویستە ئەمە پڕ بکەیتەوە. ناوی وێنەکان بە "1، 2، 3، ..." دەبێت.
-    // لێرە تەنها درێژکراوە (پاشگر)ەکانی وێنەکە بنووسە بە ڕیزبەندی.
+    // ناوی بنەڕەتی وێنەکانمان گۆڕدرا بۆ "img" بۆ هەموو بەشەکان.
+    // وێنەکان دەبێت ناویان بێت بە: img1.jpg, img2.png, img3.webp, هتد.
 
     const GALLERY_DATA = {
         "door-gallery": {
-            baseName: "door",
+            baseName: "IMG", 
             title: "بەشی دەرگا",
-            // فۆرماتی وێنەکانی دەرگا، بە ڕیزبەندی: door1, door2, door3...
             extensions: [
-                "jpg", "PNG", "webp", "gif", "HEIC", "jpg", // 6 وێنەی یەکەم بۆ نموونە
-                // لێرە بەردەوام بە... تا کۆتایی هەموو وێنەکانت
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
             ]
         },
         "rafa-gallery": {
-            baseName: "rafa",
+            baseName: "IMG", // **گۆڕدرا**
             title: "بەشی رەفە",
-            // فۆرماتی وێنەکانی ڕەفە، بە ڕیزبەندی: rafa1, rafa2, rafa3...
             extensions: [
-                "png", "jpg", "webp", "JPG", "gif", "HEIC", // 6 وێنەی یەکەم بۆ نموونە
-                // لێرە بەردەوام بە... تا کۆتایی هەموو وێنەکانت
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
             ]
         },
         "qadrma-gallery": {
-            baseName: "qadrma",
+            baseName: "IMG", // **گۆڕدرا**
             title: "بەشی قادرمە",
-            // فۆرماتی وێنەکانی قادرمە
             extensions: [
-                "jpg", "png", "webp", "HEIC", // 4 وێنەی یەکەم بۆ نموونە
-                // لێرە بەردەوام بە... تا کۆتایی هەموو وێنەکانت
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
             ]
         },
         // **لێرە بەردەوام بە بۆ کاتیبە، کەپر، موحاجەرە، هتد**
         "kapr-gallery": {
-            baseName: "kapr",
+            baseName: "IMG", // **گۆڕدرا**
             title: "بەشی کەپر",
-            extensions: ["jpg", "png", /* ... */] 
+            extensions: [
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
+            ]
         },
         "katiba-gallery": {
-            baseName: "katiba",
+            baseName: "IMG", // **گۆڕدرا**
             title: "بەشی کەتیبە",
-            extensions: ["jpg", "png", /* ... */] 
+            extensions: [
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
+            ]
         },
         "mhajara-gallery": {
-            baseName: "mhajara",
+            baseName: "IMG", // **گۆڕدرا**
             title: "بەشی موحاجەرە",
-            extensions: ["jpg", "png", /* ... */] 
+            extensions: [
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
+            ]
+        },
+        "others-gallery": { // بۆ بەشی بابەتی تر
+            baseName: "IMG", // **گۆڕدرا**
+            title: "بابەتی تر",
+            extensions: [
+                "jpg", "PNG", "webp", "gif", "HEIC", "JPG", "png",
+            ]
         }
     };
 
     // ----------------------------------------------------
-    // بەشی ٢: دروستکردنی گەلەری (گەورەترین گۆڕانکاری)
+    // بەشی ٢: دروستکردنی گەلەری
     // ----------------------------------------------------
 
     const galleryContainer = document.querySelector('.gallery-grid');
@@ -70,12 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
             // دروستکردنی کۆدی HTML بۆ هەموو وێنەکان لە ناو لووپێکدا
             extensions.forEach((ext, index) => {
                 const imageNumber = index + 1;
-                // گرتنی ناوی ڕێگای تەواوی وێنەکە
-                // بۆ نموونە: images/door1.jpg یان images/rafa5.PNG
+                // دروستکردنی ناوی ڕێگای تەواوی وێنەکە: images/img1.jpg
                 const imagePath = `images/${baseName}${imageNumber}.${ext}`; 
                 
                 // دروستکردنی تاگی <img /> و کارتی وێنەکە
-                // loading="lazy" بۆ باشترکردنی خێرایی بارکردن بەکاردەهێنرێت
                 imagesHTML += `
                     <div class="image-card">
                         <img src="${imagePath}" 
@@ -93,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ----------------------------------------------------
-    // بەشی ٣: کۆدی مۆدالی گەورەکردن (وەک خۆی دەمێنێتەوە، تەنها شوێنەکەی دەگۆڕدرێت)
+    // بەشی ٣: کۆدی مۆدالی گەورەکردن
     // ----------------------------------------------------
     
     // وەرگرتنی مۆدال و ئەندامەکانی
@@ -101,8 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImage = document.getElementById('modal-image');
     const closeButton = document.querySelector('.close-button');
 
-    // وەرگرتنی هەموو دوگمەکانی گەورەکردن (دوای دروستکردنیان لە لووپەکە)
-    // ئەمە زۆر گرنگە کە لێرە بێت چونکە وێنەکان تازە دروست کراون.
+    // وەرگرتنی هەموو دوگمەکانی گەورەکردن (دوای دروستکردنیان لە بەشی ٢)
     const zoomButtons = document.querySelectorAll('.zoom-button'); 
 
     // کردار بۆ کردنەوەی مۆدال
