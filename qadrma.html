@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ku" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>چالاک - بەشی دەرگا</title>
+    
+    <!-- تایبەتمەندییەکانی Web App بۆ لاپەڕە ناوخۆییەکانیش -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#287094"> 
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="section-header">
+        <!-- دوگمەی گەڕانەوەی ساکار (تەنها سەهمێک) -->
+        <!-- *تێبینی: پێویستە ستایلی back-button لە CSS ڕێک بخرێت بۆ ئەوەی لە لای چەپ بێت* -->
+        <a href="index.html" class="back-button">
+            &larr; 
+        </a>
+        <h1>بەشی قادرمە</h1>
+    </header>
+
+    <main class="gallery-grid">
+        
+        <!-- کارتی وێنەی یەکەم - لێرە وێنەکانی خۆت زیاد بکە -->
+        <div class="image-card">
+            <!-- وێنەکە خۆی کلیک لێ دەکرێت، بەڵام بۆ چالاککردنی مۆدالەکە دوگمەکە بەکاردەهێنرێت -->
+            <img src="images/door1.jpg" alt="دیزاینی دەرگای ١">
+            <button class="zoom-button">گەورە کردن</button>
+        </div>
+
+        <!-- کارتی وێنەی دووەم -->
+        <div class="image-card">
+            <img src="images/door2.jpg" alt="دیزاینی دەرگای ٢">
+            <button class="zoom-button">گەورە کردن</button>
+        </div>
+
+        <!-- کارتی تریش لێرە زیاد بکە... -->
+        
+    </main>
+
+    <!-- مۆدالی گەورەکردنی وێنە (The Modal) - وەک پێشتر -->
+    <div id="image-modal" class="modal">
+        <span class="close-button">&times;</span> 
+        <img class="modal-content" id="modal-image" src="" alt="">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
